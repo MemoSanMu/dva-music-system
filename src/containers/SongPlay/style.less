@@ -1,0 +1,170 @@
+.song-play-container {
+  width: 100%;
+  height: 100%;
+  background: #0a0b0c;
+  position: relative;
+  background: -moz-linear-gradient(top,  #0a0b0c 0%, #6b6b6b 60%,  #0a0b0c 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0a0b0c), color-stop(60%,  #0a0b0c 100%,#6b6b6b));
+  background: -webkit-linear-gradient(top,  #0a0b0c 0%,#6b6b6b 60%,  #0a0b0c 100%);
+  background: -o-linear-gradient(top,  #0a0b0c 0%,#6b6b6b 60%,  #0a0b0c 100%);
+  background: -ms-linear-gradient(top,  #0a0b0c 0%,#6b6b6b 60%,  #0a0b0c 100%);
+  background: linear-gradient(to bottom,  #0a0b0c 0%,#6b6b6b 60%,  #0a0b0c 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a0b0c', endColorstr='#6b6b6b',GradientType=0 );
+}
+.song-play-container::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -10vh;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 70vw;
+  height: 70vw;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  border: 18px solid rgba(255, 255, 255, 0.11);
+}
+:root .gradient{filter:none;}
+
+.song-play-nav {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: aliceblue;
+  text-align: center;
+  .song-play-nav-center h3 {
+    font-size: 24px;
+  }
+  .song-play-nav-center span i {
+    vertical-align: middle;
+  }
+}
+
+.song-play-rotate-wrap {
+  position: absolute;
+  width: 70vw;
+  height: 70vw;
+  border-radius: 50%;
+  left: 0;
+  top: -10vh;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #050607;
+  .song-play-rotate-wrap-needle {
+    position: absolute;
+    width: 100vw;
+    top: -140px;
+    left: 0;
+    margin-left: -110px;
+    div {
+      margin: 0 auto;
+      width: 140px;
+      img {
+        width: 100%;
+        height: auto;
+        margin-left: 70px;
+        animation: rotate 1s linear 1 forwards;
+        transition: all 1s linear;
+        transform-origin:0 0;
+      }
+      img.pause {
+        animation: reduce-rotate 1s linear 1 forwards;
+      }
+    }
+  }
+  .song-play-rotate-wrap-bg {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 50%;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+  }
+}
+
+@keyframes rotate {
+  0%{-webkit-transform:rotate(-26deg);}
+  100%{-webkit-transform:rotate(0deg);}
+}
+
+@keyframes reduce-rotate {
+  0%{-webkit-transform:rotate(0);}
+  100%{-webkit-transform:rotate(-26deg);}
+}
+
+.play {
+  animation: turn 16s linear infinite;  
+}
+
+.pause {
+  animation-play-state: paused;
+}
+
+/* 
+turn : 定义的动画名称
+1s : 动画时间
+linear : 动画以何种运行轨迹完成一个周期
+infinite :规定动画应该无限次播放
+*/
+@keyframes turn {
+  0%{-webkit-transform:rotate(0deg);}
+  25%{-webkit-transform:rotate(90deg);}
+  50%{-webkit-transform:rotate(180deg);}
+  75%{-webkit-transform:rotate(270deg);}
+  100%{-webkit-transform:rotate(360deg);}
+}
+
+.song-play-actions-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 230px;
+  .actions-top, .actions-bottom {
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+.actions-progress, .song-play-volume {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* range主体样式 */
+  .lcmf-range {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 70vw;
+    height: 0.16rem;
+    /* outline设置为零防止点到空白区域时会出现边框影响美观性问题 */
+    outline: 0;
+    border: 0;
+    /* 背景色设置为渐变色，有兼容性问题谨慎使用 */
+    background: linear-gradient(to right,rgb(161, 160, 159),rgb(163, 163, 163));
+    border-radius: .8rem;
+  }
+  /* 滑动块样式 */
+  .lcmf-range::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    height: .8rem;
+    width: .8rem;
+    border-radius: 50%;
+    background-color: white;
+    border: 0.01rem solid rgb(248, 244, 244);
+  }
+}

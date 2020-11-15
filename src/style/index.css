@@ -1,0 +1,129 @@
+
+html, body, :global(#root) {
+  height: 100%;
+}
+
+#root {
+  background-color: #141516;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-wraper {
+  flex: 1;
+  overflow-y: scroll;
+}
+
+.padding {
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.p-t-10 {
+  padding-top: 10px;
+}
+
+.p-t-20 {
+  padding-top: 20px;
+}
+
+.p-r-10 {
+  padding-right: 10px;
+}
+
+.p-b-10 {
+  padding-bottom: 10px;
+}
+
+.p-l-10 {
+  padding-left: 10px;
+}
+
+.vertical-text-top {
+  vertical-align: text-top;
+}
+
+.clear{
+  clear: both;
+  overflow: hidden;
+}
+
+/* 灰色 */
+.fontGreyClolr {
+  color: #bbbcbd;
+}
+
+/* 白色 */
+.fontGreyClolr {
+  color: #ffffff;
+}
+
+/* 字体缩放 小 */
+.setting-font-small {
+  transform: scale(0.85);
+}
+
+/* 字体缩放 中*/
+.setting-font-md {
+  transform: scale(2);
+}
+
+/* 字体缩放 大 */
+.setting-font-lg {
+  transform: scale(2.4);
+}
+
+.iconfont {
+  font-size: 30px;
+}
+
+/* 通过传递 passive 为 false 来明确告诉浏览器：事件处理程序调用 preventDefault 来阻止默认滑动行为 */
+/* * { touch-action: pan-y; }  */
+
+/* 去除input和button标签的默认样式 */
+input, button{ outline: none; background: none; border: none} 
+
+/* 去除button在ios上的默认样式 */
+input[type="button"], input[type="submit"], input[type="reset"] ,
+button {
+    -webkit-appearance:none;
+}
+
+input::-webkit-input-placeholder{
+  color:#3a3b3c!important;
+}
+input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+  color:#3a3b3c!important;
+}
+input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+  color:#3a3b3c!important;
+}
+input:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
+  color:#3a3b3c!important;
+}
+
+/* 多行文本省略 */
+.text-ellipsis {
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  /*! autoprefixer: off */
+ -webkit-box-orient: vertical;
+ /* autoprefixer: on */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 单行文本省略 */
+.line-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+
+/* 背景图自适应  background-image: url('背景动态')*/
+.self-adaption {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+}

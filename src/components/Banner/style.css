@@ -1,0 +1,17 @@
+.slider-frame {
+  border-radius: 6px;
+}
+
+.banner-w-tag-title {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #ffffff;
+  font-size: 12px;
+  text-align: center;
+  padding: 0 10px;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 6px 0 0 0;
+  -webkit-box-sizing: border-box;
+}
