@@ -1,4 +1,4 @@
-import axios from '../api';
+import axios from "../api";
 
 /**
  * 获取主页轮播图的api
@@ -6,7 +6,7 @@ import axios from '../api';
  */
 export const getToplistDetail = () => {
   return axios({
-    method: 'get',
-    url: '/toplist/detail'
-  })
-}
+    method: "get",
+    url: "/toplist/detail"
+  });
+};

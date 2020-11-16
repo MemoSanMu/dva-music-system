@@ -5,9 +5,9 @@ const SongPlayNav = ({ songDetail = {}, handleBack }) => {
         <i onClick={handleBack} className="icon iconfont icon-xiangzuo"></i>
       </div>
       <div className="song-play-nav-center p-t-10">
-        <h3>{ songDetail?.name || '' }</h3>
-        <span> 
-          { songDetail?.ar[0]?.name || '' } <i className="icon iconfont icon-xiangyou"></i>
+        <h3>{songDetail?.name || ""}</h3>
+        <span>
+          {songDetail?.ar[0]?.name || ""} <i className="icon iconfont icon-xiangyou"></i>
         </span>
       </div>
       <div className="song-play-nav-right">
@@ -15,7 +15,7 @@ const SongPlayNav = ({ songDetail = {}, handleBack }) => {
         <i className="icon iconfont icon-fenxiang"></i>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default SongPlayNav
+export default SongPlayNav;

@@ -1,7 +1,6 @@
-
-import namespace from './nameSpace';
-import { getPlayListDetail } from '@/api/PlayListDetail'
-import { setSessionStorage } from '@/utils/storage'
+import namespace from "./nameSpace";
+import { getPlayListDetail } from "@/api/PlayListDetail";
+import { setSessionStorage } from "@/utils/storage";
 
 const defaultState = {
   topListDetial: null,
@@ -9,7 +8,6 @@ const defaultState = {
 };
 
 const topListDetailStore = {
-
   namespace,
 
   state: defaultState,
@@ -17,12 +15,12 @@ const topListDetailStore = {
   effects: {
     *initTopListDetail({ payload }, { call, put }) {
       const { code, playlist } = yield getPlayListDetail(payload);
-      yield put({ type: 'saveInfo', topListDetial: playlist });
+      if (code === 200) yield put({ type: "saveInfo", topListDetial: playlist });
     },
     *saveSongDetail({ payload }, { call, put }) {
-      setSessionStorage('songDetail', payload)
-      yield put({ type: 'saveInfo', songDetail: payload });
-    },
+      setSessionStorage("songDetail", payload);
+      yield put({ type: "saveInfo", songDetail: payload });
+    }
   },
 
   reducers: {
@@ -30,10 +28,9 @@ const topListDetailStore = {
       return {
         ...state,
         ...payload
-      }
-    },
-  },
+      };
+    }
+  }
+};
 
-}
-
-export default topListDetailStore
+export default topListDetailStore;

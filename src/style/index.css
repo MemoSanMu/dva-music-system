@@ -1,5 +1,6 @@
-
-html, body, :global(#root) {
+html,
+body,
+:global(#root) {
   height: 100%;
 }
 
@@ -44,7 +45,7 @@ html, body, :global(#root) {
   vertical-align: text-top;
 }
 
-.clear{
+.clear {
   clear: both;
   overflow: hidden;
 }
@@ -82,34 +83,44 @@ html, body, :global(#root) {
 /* * { touch-action: pan-y; }  */
 
 /* 去除input和button标签的默认样式 */
-input, button{ outline: none; background: none; border: none} 
+input,
+button {
+  outline: none;
+  background: none;
+  border: none;
+}
 
 /* 去除button在ios上的默认样式 */
-input[type="button"], input[type="submit"], input[type="reset"] ,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
 button {
-    -webkit-appearance:none;
+  -webkit-appearance: none;
 }
 
-input::-webkit-input-placeholder{
-  color:#3a3b3c!important;
+input::-webkit-input-placeholder {
+  color: #3a3b3c !important;
 }
-input::-moz-placeholder{   /* Mozilla Firefox 19+ */
-  color:#3a3b3c!important;
+input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #3a3b3c !important;
 }
-input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
-  color:#3a3b3c!important;
+input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #3a3b3c !important;
 }
-input:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
-  color:#3a3b3c!important;
+input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #3a3b3c !important;
 }
 
 /* 多行文本省略 */
 .text-ellipsis {
   -webkit-line-clamp: 2;
   display: -webkit-box;
-  /*! autoprefixer: off */
- -webkit-box-orient: vertical;
- /* autoprefixer: on */
+  /*! autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -118,7 +129,7 @@ input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
 .line-ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap
+  white-space: nowrap;
 }
 
 /* 背景图自适应  background-image: url('背景动态')*/

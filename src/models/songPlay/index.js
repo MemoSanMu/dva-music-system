@@ -1,13 +1,11 @@
-
-import namespace from './nameSpace';
-import { getSongPlayDetail } from '@/api/songPlay'
+import namespace from "./nameSpace";
+import { getSongPlayDetail } from "@/api/songPlay";
 
 const defaultState = {
-  songPlayDetail: null,
+  songPlayDetail: null
 };
 
 const SongPlayDetailStore = {
-
   namespace,
 
   state: defaultState,
@@ -15,8 +13,8 @@ const SongPlayDetailStore = {
   effects: {
     *initSongPlayDetail({ payload }, { call, put }) {
       const { code, data } = yield getSongPlayDetail(payload);
-      yield put({ type: 'saveInfo', songPlayDetail: data });
-    },
+      if (code === 200) yield put({ type: "saveInfo", songPlayDetail: data });
+    }
   },
 
   reducers: {
@@ -24,10 +22,9 @@ const SongPlayDetailStore = {
       return {
         ...state,
         ...payload
-      }
-    },
-  },
+      };
+    }
+  }
+};
 
-}
-
-export default SongPlayDetailStore
+export default SongPlayDetailStore;

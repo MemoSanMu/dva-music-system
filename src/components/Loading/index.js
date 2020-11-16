@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import './style.css'
+import React from "react";
+import "./style.css";
 
 export default ({ isShow = false }) => {
   return (
-    <div className="loading-wrapper" style={{ display: isShow ? 'block' : 'none' }}>
+    <div className="loading-wrapper" style={{ display: isShow ? "block" : "none" }}>
       <div className="loadEffect">
         <span></span>
         <span></span>
@@ -16,6 +16,5 @@ export default ({ isShow = false }) => {
       </div>
       <p className="loading-text">Loading...</p>
     </div>
-  )
-}
-
+  );
+};

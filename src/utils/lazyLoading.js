@@ -1,5 +1,5 @@
-import dynamic from 'dva/dynamic';
-import App from '@'
+import dynamic from "dva/dynamic";
+import App from "@";
 // const homePage = dynamic({
 //   app,
 //   // models: () => [
@@ -15,9 +15,9 @@ import App from '@'
  * @param {*} component
  * @return {*}
  */
-const lazyLoading = (component) => dynamic({ App, component})
+const lazyLoading = component => dynamic({ App, component });
 
-const Header = lazyLoading(() => import('@/components/Header') )
-const Footer = lazyLoading(() => import('@/components/Footer') )
+const Header = lazyLoading(() => import("@/components/Header"));
+const Footer = lazyLoading(() => import("@/components/Footer"));
 
-export { lazyLoading, Header, Footer }
+export { lazyLoading, Header, Footer };

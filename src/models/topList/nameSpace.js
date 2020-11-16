@@ -1,1 +1,1 @@
-export default '@topList'
+export default "@topList";

@@ -1,7 +1,8 @@
-import axios from '../api';
+import axios from "../api";
 
-export const getSongDetail = ids => axios.get('/song/detail', {
-  params: {
-    ids,
-  },
-});
+export const getSongDetail = ids =>
+  axios.get("/song/detail", {
+    params: {
+      ids
+    }
+  });

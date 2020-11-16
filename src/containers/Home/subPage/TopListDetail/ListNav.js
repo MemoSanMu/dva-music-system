@@ -1,7 +1,7 @@
 /**
  * @name: ListNav
  * @test: test font
- * @msg: 
+ * @msg:
  * @param {*} trackCount
  * @param {*} subscribedCount
  * @return {*}
@@ -22,10 +22,8 @@ export default ({ trackCount, subscribedCount }) => {
         <span>
           <i className="icon iconfont icon-jia"></i>
         </span>
-        <span className="p-l-10 vertical-text-top">
-          {`收藏(${subscribedCount} 万)`}
-        </span>
+        <span className="p-l-10 vertical-text-top">{`收藏(${subscribedCount} 万)`}</span>
       </div>
     </nav>
-  )
-}
+  );
+};

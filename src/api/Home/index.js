@@ -1,4 +1,4 @@
-import axios from '../api'
+import axios from "../api";
 
 /**
  * 获取主页轮播图的api
@@ -6,10 +6,10 @@ import axios from '../api'
  */
 export const getBanner = () => {
   return axios({
-    method: 'get',
-    url: '/banner'
-  })
-}
+    method: "get",
+    url: "/banner"
+  });
+};
 
 /**
  * 获取主页推荐歌单的api
@@ -17,8 +17,8 @@ export const getBanner = () => {
  */
 export const getRecommendSongList = (data = {}) => {
   return axios({
-    method: 'get',
-    url: '/personalized',
+    method: "get",
+    url: "/personalized",
     params: data
-  })
-}
+  });
+};

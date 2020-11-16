@@ -1,1 +1,1 @@
-export default '@song-play'
+export default "@song-play";

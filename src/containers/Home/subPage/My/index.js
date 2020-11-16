@@ -1,40 +1,51 @@
-import React, { Component } from 'react';
-import { Button, Icon, Badge } from 'antd-mobile';
-import { getCookies } from '@/utils/common'
-import { connect } from 'dva'
-import './style.less'
+import React, { Component } from "react";
+import { Icon, Badge } from "antd-mobile";
+import { getCookies } from "@/utils/common";
+import { connect } from "dva";
+import "./style.less";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    userInfo: state['@login'].userInfo || getCookies('userInfo'),
-  }
-}
+    userInfo: state["@login"].userInfo || getCookies("userInfo")
+  };
+};
 @connect(mapStateToProps)
 class Index extends Component {
   render() {
-    const { userInfo: { profile } } = this.props
+    const {
+      userInfo: { profile }
+    } = this.props;
     return (
       <div className="my-wrap">
         <div className="my-w-h">
           <dl>
             <dt>
-              <img src={profile.avatarUrl} alt=""/>
+              <img src={profile.avatarUrl} alt="" />
             </dt>
             <dd>
               <div className="my-w-h-dd-l">
-                <h4>{ profile.nickname }</h4>
+                <h4>{profile.nickname}</h4>
                 <div>
-                <Badge text="VIP开通" style={{ marginLeft: 12, padding: '0 3px', backgroundColor: '#21b68a', borderRadius: 2 }} />
-                <Badge text="等级Lv.0"
-                  style={{
-                    marginLeft: 12,
-                    padding: '0 3px',
-                    backgroundColor: '#fff',
-                    borderRadius: 2,
-                    color: '#f19736',
-                    border: '1px solid #f19736',
-                  }}
-                />
+                  <Badge
+                    text="VIP开通"
+                    style={{
+                      marginLeft: 12,
+                      padding: "0 3px",
+                      backgroundColor: "#21b68a",
+                      borderRadius: 2
+                    }}
+                  />
+                  <Badge
+                    text="等级Lv.0"
+                    style={{
+                      marginLeft: 12,
+                      padding: "0 3px",
+                      backgroundColor: "#fff",
+                      borderRadius: 2,
+                      color: "#f19736",
+                      border: "1px solid #f19736"
+                    }}
+                  />
                 </div>
               </div>
               <div>

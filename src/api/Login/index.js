@@ -1,14 +1,14 @@
-import axios from '../api';
+import axios from "../api";
 
 /**
  * 登录 - 手机
  *
  */
-export const login = (params) => {
+export const login = params => {
   return axios({
-    method: 'post',
+    method: "post",
     url: `/login/cellphone`,
     params,
-    withCredentials: true,
-  })
-}
+    withCredentials: true
+  });
+};

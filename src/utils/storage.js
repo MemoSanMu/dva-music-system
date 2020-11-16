@@ -1,4 +1,4 @@
-const sessionStorage = window.sessionStorage
+const sessionStorage = window.sessionStorage;
 
 /**
  * @name: setSessionStorage
@@ -7,9 +7,9 @@ const sessionStorage = window.sessionStorage
  * @param {*}
  * @return {*}
  */
-const  setSessionStorage = (key, value) => {
-  sessionStorage.setItem(key, JSON.stringify(value))
-}
+const setSessionStorage = (key, value) => {
+  sessionStorage.setItem(key, JSON.stringify(value));
+};
 
 /**
  * @name: getSessionStorage
@@ -19,8 +19,8 @@ const  setSessionStorage = (key, value) => {
  * @return {*}
  */
 const getSessionStorage = key => {
-  return (key && sessionStorage.getItem(key) )? JSON.parse(sessionStorage.getItem(key)) : null
-}
+  return key && sessionStorage.getItem(key) ? JSON.parse(sessionStorage.getItem(key)) : null;
+};
 
 /**
  * @name: removeSessionStorage
@@ -30,8 +30,7 @@ const getSessionStorage = key => {
  * @return {*}
  */
 const removeSessionStorage = key => {
-  sessionStorage.removeItem(key)
-}
+  sessionStorage.removeItem(key);
+};
 
-export { setSessionStorage, getSessionStorage, removeSessionStorage }
-
+export { setSessionStorage, getSessionStorage, removeSessionStorage };

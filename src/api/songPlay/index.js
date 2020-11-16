@@ -1,19 +1,19 @@
-import axios from '../api';
+import axios from "../api";
 
-
-export const getSongPlayDetail = (params) => {
+export const getSongPlayDetail = params => {
   return axios({
-    url: '/song/url',
-    method: 'get',
+    url: "/song/url",
+    method: "get",
     params,
-    withCredentials: true,
-  })
-}
+    withCredentials: true
+  });
+};
 
-export const toggleStarTheSong = (musicId, like) => axios.get('/like', {
-  params: {
-    id: musicId,
-    like,
-  },
-  withCredentials: true,
-});
+export const toggleStarTheSong = (musicId, like) =>
+  axios.get("/like", {
+    params: {
+      id: musicId,
+      like
+    },
+    withCredentials: true
+  });
