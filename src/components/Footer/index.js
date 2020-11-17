@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { withRouter } from "dva/router";
 import footerMockData from "./util";
+import { handleIconFont } from "@/utils/common";
+
 import "./style.less";
 
 class Footer extends Component {
@@ -29,7 +31,9 @@ class Footer extends Component {
                   onClick={() => this.handleFooterSelect(item)}
                 >
                   <div>
-                    <i className={`icon iconfont ${item.iconfont}`}></i>
+                    <svg className="icon" aria-hidden="true">
+                      <use xlinkHref={handleIconFont(item.iconfont)}></use>
+                    </svg>
                     <p>{item.title}</p>
                   </div>
                 </li>

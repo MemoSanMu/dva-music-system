@@ -75,8 +75,12 @@ body,
   transform: scale(2.4);
 }
 
-.iconfont {
-  font-size: 30px;
+.icon {
+  width: 1.9rem;
+  height: 1.9rem;
+  fill: currentColor;
+  display: inline-block;
+  vertical-align: -10px;
 }
 
 /* 通过传递 passive 为 false 来明确告诉浏览器：事件处理程序调用 preventDefault 来阻止默认滑动行为 */

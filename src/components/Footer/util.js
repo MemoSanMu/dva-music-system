@@ -2,31 +2,31 @@ export default [
   {
     id: "001",
     title: "发现",
-    iconfont: "icon-faxian",
+    iconfont: "faxian",
     url: "/home"
   },
   {
     id: "002",
     title: "视屏",
-    iconfont: "icon-bofang",
+    iconfont: "bofang",
     url: "/home/video"
   },
   {
     id: "003",
     title: "我的",
-    iconfont: "icon-yinyue",
+    iconfont: "yinyue",
     url: "/home/my"
   },
   {
     id: "004",
     title: "云村",
-    iconfont: "icon-A",
+    iconfont: "A",
     url: "/home/clouds"
   },
   {
     id: "005",
     title: "账号",
-    iconfont: "icon-wode",
+    iconfont: "wode",
     url: "/home/account"
   }
 ];

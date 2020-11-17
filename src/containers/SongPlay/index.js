@@ -37,7 +37,8 @@ class SongPlay extends Component {
       allTime: 0, // 音乐总时长
       currentTime: 0, // 当前音乐播放时间
       isMuted: false, // 是否静音
-      volume: 20 // 音量
+      volume: 20, // 音量
+      isLike: false // 是否喜欢
     };
   }
 
@@ -90,7 +91,8 @@ class SongPlay extends Component {
     // 如果播放的当前时间 等于 音乐的总时长 那么改变播放状态
     if (value === current.duration) {
       this.setState({
-        isPlay: false
+        isPlay: false,
+        currentTime: 0
       });
     }
   };
@@ -104,7 +106,8 @@ class SongPlay extends Component {
     // 如果播放的当前时间 等于 音乐的总时长 那么改变播放状态
     if (current.currentTime === current.duration) {
       this.setState({
-        isPlay: false
+        isPlay: false,
+        currentTime: 0
       });
     }
   };
@@ -134,9 +137,17 @@ class SongPlay extends Component {
     current.muted = !current.muted;
   };
 
+  // 处理喜欢
+  handleLike = () => {
+    this.setState(preState => {
+      const { isLike } = preState;
+      return { isLike: !isLike };
+    });
+  };
+
   render() {
     const { songPlayDetail, songDetail } = this.props;
-    const { isPlay, allTime, currentTime, isMuted, volume } = this.state;
+    const { isPlay, allTime, currentTime, isMuted, volume, isLike } = this.state;
     const isAl = songDetail?.al;
     return (
       // style={{ backgroundImage: `url(${songDetail?.al.picUrl}) center` }}
@@ -156,11 +167,23 @@ class SongPlay extends Component {
         {songDetail && <SongPalNav songDetail={songDetail} handleBack={this.handleBack} />}
         {isAl && <RotationArea info={songDetail.al} isPlay={isPlay} />}
         <div className="song-play-volume padding">
-          <i onClick={this.onMuteAudio} className={handleIconFont(isMuted ? "jingyin" : "yinliang")}></i>
+          <svg onClick={this.onMuteAudio} className="icon" aria-hidden="true">
+            <use xlinkHref={handleIconFont(isMuted ? "jingyin" : "yinliang")}></use>
+          </svg>
           <input className="lcmf-range" type="range" onChange={this.changeVolume} value={isMuted ? 0 : volume} />
-          <i className={handleIconFont("touping")}></i>
+          <svg className="icon" aria-hidden="true">
+            <use xlinkHref={handleIconFont("touping")}></use>
+          </svg>
         </div>
-        <Actions handleSongPlay={this.handleSongPlay} isPlay={isPlay} allTime={allTime} currentTime={currentTime} changeTime={this.changeTime} />
+        <Actions
+          handleSongPlay={this.handleSongPlay}
+          isPlay={isPlay}
+          allTime={allTime}
+          currentTime={currentTime}
+          isLike={isLike}
+          changeTime={this.changeTime}
+          handleLike={this.handleLike}
+        />
       </main>
     );
   }

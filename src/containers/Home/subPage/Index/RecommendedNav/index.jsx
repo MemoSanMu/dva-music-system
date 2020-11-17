@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "dva/router";
+import { handleIconFont } from "@/utils/common";
 import recommendedData from "./util";
 import "./style.less";
 
@@ -17,7 +18,9 @@ class Recommended extends Component {
               return (
                 <Link key={item.id} to={item.path}>
                   <div>
-                    <i className={`icon iconfont ${item.iconfont}`}></i>
+                    <svg className="icon" aria-hidden="true">
+                      <use xlinkHref={handleIconFont(item.iconfont)}></use>
+                    </svg>
                   </div>
                   <p>{item.title}</p>
                 </Link>

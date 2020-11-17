@@ -12,17 +12,17 @@
       margin-left: 0.625rem;
       padding: 0 10px;
       text-align: center;
-      &>div {
+      & > div {
         width: 75px;
         height: 75px;
+        line-height: 75px;
         border-radius: 50%;
         background-color: #2c2d2e;
         margin-bottom: 10px;
       }
-      & i {
+      & svg {
         display: inline-block;
         transform: scale(1.8);
-        color: #d81e06;
         line-height: 75px;
       }
     }
@@ -30,7 +30,9 @@
       padding-right: 1.25rem;
     }
   }
-  ::-webkit-scrollbar { width: 0 !important };
+  ::-webkit-scrollbar {
+    width: 0 !important;
+  }
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
 }

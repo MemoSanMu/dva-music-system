@@ -26,7 +26,7 @@ const transformation = (value, num) => (value && (value / num).toFixed()) || "";
  * @param {*} iconName
  * @return {*}
  */
-const handleIconFont = iconName => `icon iconfont icon-${iconName}`;
+const handleIconFont = iconName => `#icon-${iconName}`;
 
 /**
  * @name: handleZeroFilling

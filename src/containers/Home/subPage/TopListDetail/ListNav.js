@@ -1,3 +1,4 @@
+import { handleIconFont } from "@/utils/common";
 /**
  * @name: ListNav
  * @test: test font
@@ -11,7 +12,9 @@ export default ({ trackCount, subscribedCount }) => {
     <nav className="list-nav padding">
       <div>
         <span>
-          <i className="icon iconfont icon-bofang"></i>
+          <svg className="icon" aria-hidden="true">
+            <use xlinkHref={handleIconFont("bofang")}></use>
+          </svg>
         </span>
         <span>
           <strong className="p-l-10">播发全部</strong>
@@ -20,7 +23,9 @@ export default ({ trackCount, subscribedCount }) => {
       </div>
       <div className="list-nav-bgr">
         <span>
-          <i className="icon iconfont icon-jia"></i>
+          <svg className="icon" aria-hidden="true">
+            <use xlinkHref={handleIconFont("jia")}></use>
+          </svg>
         </span>
         <span className="p-l-10 vertical-text-top">{`收藏(${subscribedCount} 万)`}</span>
       </div>

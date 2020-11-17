@@ -11,17 +11,26 @@ class Actions extends Component {
   };
 
   render() {
-    const { handleSongPlay, isPlay, allTime, changeTime, currentTime } = this.props;
+    const { handleSongPlay, isPlay, allTime, changeTime, currentTime, isLike, handleLike } = this.props;
     const playIcon = isPlay ? "zanting" : "bofang1";
     return (
       <section className="song-play-actions-wrap">
         <div className="actions-top fontGreyClolr">
-          <i className={handleIconFont("aixin")}></i>
-          <i className={handleIconFont("download")}></i>
-          <i className={handleIconFont("changge")}></i>
-          <i className={handleIconFont("pinglun")}></i>
-          <i className={handleIconFont("gengduo")}></i>
-
+          <svg className="icon" aria-hidden="true" onClick={handleLike}>
+            <use xlinkHref={handleIconFont(isLike ? "aixin1" : "aixin")}></use>
+          </svg>
+          <svg className="icon" aria-hidden="true">
+            <use xlinkHref={handleIconFont("download")}></use>
+          </svg>
+          <svg className="icon" aria-hidden="true">
+            <use xlinkHref={handleIconFont("changge")}></use>
+          </svg>
+          <svg className="icon" aria-hidden="true">
+            <use xlinkHref={handleIconFont("pinglun")}></use>
+          </svg>
+          <svg className="icon" aria-hidden="true">
+            <use xlinkHref={handleIconFont("gengduo")}></use>
+          </svg>
           {/* 字幕页的icon */}
           {/* <i className={handleIconFont('yinle-')}></i>
             <i className={handleIconFont('gengduo1')}></i> */}
@@ -43,11 +52,21 @@ class Actions extends Component {
           {/* <i className={handleIconFont('danquxunhuan')}></i>
           <i className={handleIconFont('ziyuan')}></i> */}
 
-          <i className={handleIconFont("liebiaoxunhuan")}></i>
-          <i className={handleIconFont("shangyiqu101")}></i>
-          <i onClick={handleSongPlay} className={`setting-font-lg ${handleIconFont(playIcon)}`}></i>
-          <i className={handleIconFont("xiayiqu101")}></i>
-          <i className={handleIconFont("bofangliebiao")}></i>
+          <svg className="icon" aria-hidden="true">
+            <use xlinkHref={handleIconFont("liebiaoxunhuan")}></use>
+          </svg>
+          <svg className="icon" aria-hidden="true">
+            <use xlinkHref={handleIconFont("shangyiqu101")}></use>
+          </svg>
+          <svg onClick={handleSongPlay} className="icon setting-font-lg" aria-hidden="true">
+            <use xlinkHref={handleIconFont(playIcon)}></use>
+          </svg>
+          <svg className="icon" aria-hidden="true">
+            <use xlinkHref={handleIconFont("xiayiqu101")}></use>
+          </svg>
+          <svg className="icon" aria-hidden="true">
+            <use xlinkHref={handleIconFont("bofangliebiao")}></use>
+          </svg>
         </div>
       </section>
     );

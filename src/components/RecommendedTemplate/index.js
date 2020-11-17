@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { handleIconFont } from "@/utils/common";
 import PropTypes from "prop-types";
 import "./style.less";
 
@@ -14,7 +15,11 @@ export default class RecommendedTemplate extends Component {
         <div className="r-t-w-head">
           <h4 className="r-t-w-head-l">{config.title}</h4>
           <div className="r-t-w-head-r">
-            {config.isShowIcon && <i className="icon iconfont icon-bofang-info"></i>}
+            {config.isShowIcon && (
+              <svg className="icon" aria-hidden="true">
+                <use xlinkHref={handleIconFont("bofang-info")}></use>
+              </svg>
+            )}
             <span>{config.information}</span>
           </div>
         </div>

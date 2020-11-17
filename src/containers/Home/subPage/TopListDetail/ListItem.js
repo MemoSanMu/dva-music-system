@@ -1,3 +1,5 @@
+import { handleIconFont } from "@/utils/common";
+
 /**
  * @name: 排行榜列表
  * @test: test font
@@ -17,7 +19,13 @@ export default ({ List, trackIds, handleSongPlay }) => {
               <div className="list-ranking-left">
                 <h6>{indexCount}</h6>
                 <p className="setting-font-small">
-                  {trackIds[ind]?.ratio ? <i className="icon iconfont icon-xiangshang"></i> : "-"}
+                  {trackIds[ind]?.ratio ? (
+                    <svg className="icon" aria-hidden="true">
+                      <use xlinkHref={handleIconFont("xiangshang")}></use>
+                    </svg>
+                  ) : (
+                    "-"
+                  )}
                   {`${trackIds[ind]?.ratio || trackIds[ind]?.lr || ""}%`}
                 </p>
               </div>
@@ -27,8 +35,12 @@ export default ({ List, trackIds, handleSongPlay }) => {
               </div>
             </div>
             <div className="t-l-d-i-r">
-              <i className="icon iconfont icon-bofang-top-list p-r-10"></i>
-              <i className="icon iconfont icon-gengduo"></i>
+              <svg className="icon p-r-10" aria-hidden="true">
+                <use xlinkHref={handleIconFont("bofang-top-list")}></use>
+              </svg>
+              <svg className="icon p-r-10" aria-hidden="true">
+                <use xlinkHref={handleIconFont("gengduo")}></use>
+              </svg>
             </div>
           </li>
         );
