@@ -1,8 +1,10 @@
 .song-play-container {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   background: #0a0b0c;
-  position: relative;
   background: -moz-linear-gradient(top, #0a0b0c 0%, #6b6b6b 60%, #0a0b0c 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0a0b0c), color-stop(60%, #0a0b0c 100%, #6b6b6b));
   background: -webkit-linear-gradient(top, #0a0b0c 0%, #6b6b6b 60%, #0a0b0c 100%);
@@ -11,22 +13,19 @@
   background: linear-gradient(to bottom, #0a0b0c 0%, #6b6b6b 60%, #0a0b0c 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a0b0c', endColorstr='#6b6b6b',GradientType=0 );
 }
-.song-play-container::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: -10vh;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  width: 70vw;
-  height: 70vw;
-  background-color: rgba(0, 0, 0, 0);
-  border-radius: 50%;
-  border: 18px solid rgba(255, 255, 255, 0.11);
+
+.song-play-audio {
+  display: none;
 }
+
 :root .gradient {
   filter: none;
+}
+
+.song-play-toggle-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .song-play-container .iconfont {
@@ -49,32 +48,39 @@
   }
 }
 
-.song-play-rotate-wrap {
-  position: absolute;
-  width: 70vw;
-  height: 70vw;
-  border-radius: 50%;
-  left: 0;
-  top: -10vh;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  background-image: url("../../assets/ic_disc.png");
-  background-size: auto 100%;
-  background-repeat: no-repeat;
-  .song-play-rotate-wrap-needle {
+.song-play-rotate-wraper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.actions-top {
+  height: 10%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.song-play-rotate-content {
+  height: 90%;
+  position: relative;
+  .song-play-rotate-content-needle {
     position: absolute;
-    width: 100vw;
-    top: -140px;
     left: 0;
-    margin-left: -110px;
+    top: 45px;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
     div {
       margin: 0 auto;
-      width: 140px;
+      width: 150px;
       img {
         width: 100%;
         height: auto;
-        margin-left: 70px;
+        margin-left: 45px;
         animation: rotate 1s linear 1 forwards;
         transition: all 1s linear;
         transform-origin: 0 0;
@@ -84,22 +90,46 @@
       }
     }
   }
-  .song-play-rotate-wrap-bg {
+  .song-play-rotate-content-black-glue {
     position: absolute;
-    width: 70%;
-    height: 70%;
     left: 0;
-    top: 0;
+    top: 100px;
     right: 0;
     bottom: 0;
+    width: 72vw;
+    height: 72vw;
     margin: auto;
     border-radius: 50%;
-    img {
-      width: 100%;
-      height: 100%;
+    background-image: url("../../assets/ic_disc.png");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    & > img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 68%;
+      height: 68%;
+      margin: auto;
       border-radius: 50%;
     }
   }
+}
+
+.song-play-rotate-content::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100px;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 70vw;
+  height: 70vw;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  border: 18px solid rgba(255, 255, 255, 0.11);
 }
 
 @keyframes rotate {
@@ -153,12 +183,8 @@ infinite :规定动画应该无限次播放
 }
 
 .song-play-actions-wrap {
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
-  height: 230px;
-  .actions-top,
+  height: 150px;
   .actions-bottom {
     height: 80px;
     display: flex;
@@ -198,4 +224,48 @@ infinite :规定动画应该无限次播放
     background-color: white;
     border: 0.01rem solid rgb(248, 244, 244);
   }
+}
+
+.song-lyric-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.song-play-volume {
+  height: 60px;
+}
+
+.song-play-lyric {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+.song-lyric-wrapper.visible {
+  display: flex;
+}
+
+.swiper-container {
+  height: 100%;
+  text-align: center;
+}
+
+.song-play-lyc-slide {
+  color: #d2cccc;
+  line-height: 24px !important;
+}
+
+.swiper-slide-active {
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
 }

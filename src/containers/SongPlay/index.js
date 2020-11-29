@@ -6,15 +6,17 @@ import { connect } from "dva";
 import { withRouter } from "dva/router";
 import SongPalNav from "./Nav";
 import RotationArea from "./RotationArea";
+import SongLyric from "./songLyric";
 import Actions from "./Actions";
-import { handleBackPage, handleIconFont } from "@/utils/common";
+import { handleBackPage } from "@/utils/common";
 
 import "./style.less";
 
 const mapStateToProps = (state, ownProps) => {
   return {
     songPlayDetail: state[SongPlayDetail]?.songPlayDetail, // 单个音乐 含地址url
-    songDetail: state[topListDetail]?.songDetail || getSessionStorage("songDetail") // 单个音乐的其他信息
+    songDetail: state[topListDetail]?.songDetail || getSessionStorage("songDetail"), // 单个音乐的其他信息
+    songLyricDetail: state[SongPlayDetail]?.songLyricDetail || null
   };
 };
 
@@ -22,6 +24,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     initSongPlayDetail: payload => {
       dispatch({ type: `${SongPlayDetail}/initSongPlayDetail`, payload });
+    },
+    initSongLyricDetail: payload => {
+      dispatch({ type: `${SongPlayDetail}/initSongLyricDetail`, payload });
     }
   };
 };
@@ -38,6 +43,7 @@ class SongPlay extends Component {
       currentTime: 0, // 当前音乐播放时间
       isMuted: false, // 是否静音
       volume: 20, // 音量
+      toggleContent: true, // 切换黑胶背景或者歌词内容
       isLike: false // 是否喜欢
     };
   }
@@ -52,7 +58,8 @@ class SongPlay extends Component {
   initDetail = () => {
     const {
       location: { pathname },
-      initSongPlayDetail
+      initSongPlayDetail,
+      initSongLyricDetail
     } = this.props;
     const pathArr = pathname.split("/");
     const id = pathArr[pathArr.length - 1];
@@ -60,6 +67,7 @@ class SongPlay extends Component {
       id
     };
     initSongPlayDetail(params);
+    initSongLyricDetail(params);
   };
 
   // 处理播放-暂停
@@ -145,15 +153,22 @@ class SongPlay extends Component {
     });
   };
 
+  // 处理点击切换展示歌词、黑胶背景内容
+  handleToggleContent = () => {
+    this.setState(({ toggleContent }) => ({ toggleContent: !toggleContent }));
+  };
+
   render() {
-    const { songPlayDetail, songDetail } = this.props;
-    const { isPlay, allTime, currentTime, isMuted, volume, isLike } = this.state;
+    const { songPlayDetail, songDetail, songLyricDetail } = this.props;
+    const { isPlay, allTime, currentTime, isMuted, volume, isLike, toggleContent } = this.state;
     const isAl = songDetail?.al;
+    const lyricProps = { isMuted, volume, currentTime, toggleContent, changeVolume: this.changeVolume, songLyricDetail };
     return (
       // style={{ backgroundImage: `url(${songDetail?.al.picUrl}) center` }}
       <main className="song-play-container">
         {songPlayDetail && songPlayDetail.length && (
           <audio
+            className="song-play-audio"
             src={songPlayDetail[0]?.url}
             autoPlay={true}
             ref={this.audioElement}
@@ -165,25 +180,11 @@ class SongPlay extends Component {
           </audio>
         )}
         {songDetail && <SongPalNav songDetail={songDetail} handleBack={this.handleBack} />}
-        {isAl && <RotationArea info={songDetail.al} isPlay={isPlay} />}
-        <div className="song-play-volume padding">
-          <svg onClick={this.onMuteAudio} className="icon" aria-hidden="true">
-            <use xlinkHref={handleIconFont(isMuted ? "jingyin" : "yinliang")}></use>
-          </svg>
-          <input className="lcmf-range" type="range" onChange={this.changeVolume} value={isMuted ? 0 : volume} />
-          <svg className="icon" aria-hidden="true">
-            <use xlinkHref={handleIconFont("touping")}></use>
-          </svg>
-        </div>
-        <Actions
-          handleSongPlay={this.handleSongPlay}
-          isPlay={isPlay}
-          allTime={allTime}
-          currentTime={currentTime}
-          isLike={isLike}
-          changeTime={this.changeTime}
-          handleLike={this.handleLike}
-        />
+        <section className="song-play-toggle-content" onClick={this.handleToggleContent}>
+          {/* {isAl && <RotationArea info={songDetail.al} isPlay={isPlay} isLike={isLike} handleLike={this.handleLike} toggleContent={toggleContent} />} */}
+          {songLyricDetail && <SongLyric {...lyricProps} />}
+        </section>
+        <Actions handleSongPlay={this.handleSongPlay} isPlay={isPlay} allTime={allTime} currentTime={currentTime} changeTime={this.changeTime} />
       </main>
     );
   }

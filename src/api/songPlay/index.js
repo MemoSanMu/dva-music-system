@@ -9,11 +9,20 @@ export const getSongPlayDetail = params => {
   });
 };
 
-export const toggleStarTheSong = (musicId, like) =>
-  axios.get("/like", {
+export const toggleStarTheSong = (musicId, like) => {
+  return axios.get("/like", {
     params: {
       id: musicId,
       like
     },
     withCredentials: true
   });
+};
+
+export const getSongLyric = params => {
+  return axios({
+    url: "/lyric",
+    method: "get",
+    params
+  });
+};

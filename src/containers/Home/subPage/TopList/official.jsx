@@ -6,7 +6,7 @@ const SongRanking = ({ tracks }) => {
   return (
     <div>
       {tracks.map((item, ind) => {
-        return <p className="line-ellipsis" key={item.second}>{`${ind + 1}.${item.first} - ${item.second}`}</p>;
+        return <p className="line-ellipsis" key={item.first}>{`${ind + 1}.${item.first} - ${item.second}`}</p>;
       })}
     </div>
   );

@@ -11,30 +11,10 @@ class Actions extends Component {
   };
 
   render() {
-    const { handleSongPlay, isPlay, allTime, changeTime, currentTime, isLike, handleLike } = this.props;
+    const { handleSongPlay, isPlay, allTime, changeTime, currentTime } = this.props;
     const playIcon = isPlay ? "zanting" : "bofang1";
     return (
-      <section className="song-play-actions-wrap">
-        <div className="actions-top fontGreyClolr">
-          <svg className="icon" aria-hidden="true" onClick={handleLike}>
-            <use xlinkHref={handleIconFont(isLike ? "aixin1" : "aixin")}></use>
-          </svg>
-          <svg className="icon" aria-hidden="true">
-            <use xlinkHref={handleIconFont("download")}></use>
-          </svg>
-          <svg className="icon" aria-hidden="true">
-            <use xlinkHref={handleIconFont("changge")}></use>
-          </svg>
-          <svg className="icon" aria-hidden="true">
-            <use xlinkHref={handleIconFont("pinglun")}></use>
-          </svg>
-          <svg className="icon" aria-hidden="true">
-            <use xlinkHref={handleIconFont("gengduo")}></use>
-          </svg>
-          {/* 字幕页的icon */}
-          {/* <i className={handleIconFont('yinle-')}></i>
-            <i className={handleIconFont('gengduo1')}></i> */}
-        </div>
+      <footer className="song-play-actions-wrap">
         <div className="actions-progress padding p-t-10">
           <span>{this.formatSecond(currentTime)}</span>
           <input
@@ -68,7 +48,7 @@ class Actions extends Component {
             <use xlinkHref={handleIconFont("bofangliebiao")}></use>
           </svg>
         </div>
-      </section>
+      </footer>
     );
   }
 }
