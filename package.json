@@ -20,7 +20,8 @@
     "rc-form": "^2.4.11",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "swiper": "^6.3.5"
+    "swiper": "^6.3.5",
+    "vh-check": "^2.0.5"
   },
   "devDependencies": {
     "babel-plugin-dva-hmr": "^0.3.2",

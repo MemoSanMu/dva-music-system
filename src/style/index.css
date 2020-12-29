@@ -1,3 +1,5 @@
+@import "./scrollbar.css";
+
 html,
 body,
 :global(#root) {
@@ -16,6 +18,8 @@ body,
 }
 
 #root {
+  min-height: 100vh;
+  min-height: calc(100vh - var(--browser-address-bar, 0px));
   background-color: #141516;
   overflow: hidden;
   display: flex;

@@ -3,7 +3,7 @@ import { handleIconFont } from "@/utils/common";
 const RotationArea = ({ info: { picUrl }, isPlay, handleLike, isLike, toggleContent }) => {
   const isTurn = isPlay ? "" : "pause";
   return (
-    <div className={`song-play-rotate-wraper hidden ${toggleContent ? "visible" : ""}`}>
+    <div className={`${toggleContent ? "visible" : "hidden"} song-play-rotate-wraper`}>
       <div className="song-play-rotate-content">
         <div className="song-play-rotate-content-needle">
           <div>

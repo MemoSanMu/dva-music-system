@@ -181,7 +181,7 @@ class SongPlay extends Component {
         )}
         {songDetail && <SongPalNav songDetail={songDetail} handleBack={this.handleBack} />}
         <section className="song-play-toggle-content" onClick={this.handleToggleContent}>
-          {/* {isAl && <RotationArea info={songDetail.al} isPlay={isPlay} isLike={isLike} handleLike={this.handleLike} toggleContent={toggleContent} />} */}
+          {isAl && <RotationArea info={songDetail.al} isPlay={isPlay} isLike={isLike} handleLike={this.handleLike} toggleContent={toggleContent} />}
           {songLyricDetail && <SongLyric {...lyricProps} />}
         </section>
         <Actions handleSongPlay={this.handleSongPlay} isPlay={isPlay} allTime={allTime} currentTime={currentTime} changeTime={this.changeTime} />

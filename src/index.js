@@ -6,6 +6,8 @@ import "@/utils/rem";
 import RouterConfig from "@/routes";
 import { createBrowserHistory as createHistory } from "history";
 import { login, topList, topListDetail, SongPlayDetailStore } from "@/models";
+import vhCheck from "vh-check";
+vhCheck("browser-address-bar");
 
 // 1. Initialize
 const App = dva({

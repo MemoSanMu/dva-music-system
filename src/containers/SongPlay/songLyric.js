@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-28 15:23:38
- * @LastEditTime: 2020-11-29 20:46:14
+ * @LastEditTime: 2020-12-29 21:33:14
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /music-player-in-vue/Users/wangsen/sunshine/dva-music-system/src/containers/SongPlay/songLyric.js
@@ -17,12 +17,14 @@ class songLyric extends Component {
     this.songLyricWrapper = React.createRef();
     this.state = {
       lyricList: [],
-      mySwiper: null
+      mySwiper: null,
+      toggleContentFlag: null
     };
   }
 
   componentDidMount() {
-    const { songLyricDetail } = this.props;
+    const { songLyricDetail, toggleContent } = this.props;
+    this.setState({ toggleContentFlag: toggleContent });
     let lyricList = [];
     if (songLyricDetail?.lyric) {
       songLyricDetail["lyric"].split(/[\n]/).forEach(item => {
@@ -34,21 +36,25 @@ class songLyric extends Component {
           });
       });
       lyricList = lyricList.filter(v => v["lyc"]);
-      this.setState(
-        {
-          lyricList
-        },
-        () => {
-          this.songLyricWrapper.current?.clientHeight && this.initSwiper();
-        }
-      );
+      this.setState({
+        lyricList,
+        toggleContentFlag: toggleContent
+      });
     }
   }
+
+  componentWillUpdate(preProps) {
+    if (this.state.toggleContentFlag !== preProps.toggleContent && !this.state.mySwiper) {
+      this.setState({ toggleContentFlag: preProps.toggleContent });
+      this.songLyricWrapper.current?.clientHeight && this.initSwiper();
+    }
+  }
+
   initSwiper = () => {
     // 动态set slide 显示个数（根据屏幕高度自适应字体高度上下间距）
     const slidesPerView = Number((this.songLyricWrapper.current.clientHeight / 25).toFixed());
     const mySwiper = new Swiper(".swiper-container", {
-      // autoplay: true,//可选选项，自动滑动
+      // autoplay: true, //可选选项，自动滑动
       direction: "vertical", // 垂直滚动
       slidesPerView: slidesPerView, // 显示数量
       observer: true, //修改swiper自己或子元素时，自动初始化swiper
@@ -78,7 +84,7 @@ class songLyric extends Component {
       mySwiper.slideTo(index);
     }
     return (
-      <div className={`song-lyric-wrapper ${!toggleContent ? "visible" : ""}`}>
+      <div className={`${toggleContent ? "hidden" : "visible"} song-lyric-wrapper`}>
         <div className="song-play-volume padding">
           <svg onClick={this.onMuteAudio} className="icon" aria-hidden="true">
             <use xlinkHref={handleIconFont(isMuted ? "jingyin" : "yinliang")}></use>
