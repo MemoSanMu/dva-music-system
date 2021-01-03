@@ -12,7 +12,7 @@ export default class RecommendWrap extends Component {
     recommendData: []
   };
   componentDidMount() {
-    getRecommendSongList({ limit: 6 }).then(({ result }) => {
+    getRecommendSongList().then(({ result }) => {
       this.setState({ recommendData: result });
     });
   }

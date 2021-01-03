@@ -18,7 +18,6 @@ export default class SectionWraper extends Component {
     });
   }
   render() {
-    console.log(this.props, "pp");
     const { bannerData } = this.state;
     return (
       <Fragment>

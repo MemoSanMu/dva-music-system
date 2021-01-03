@@ -12,6 +12,12 @@ export default [
     path: "/home/topList"
   },
   {
+    id: "010",
+    title: "歌手",
+    iconfont: "gedan",
+    path: "/home/singer"
+  },
+  {
     id: "003",
     title: "歌单",
     iconfont: "gedan",

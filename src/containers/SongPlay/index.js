@@ -165,7 +165,7 @@ class SongPlay extends Component {
     const lyricProps = { isMuted, volume, currentTime, toggleContent, changeVolume: this.changeVolume, songLyricDetail };
     return (
       // style={{ backgroundImage: `url(${songDetail?.al.picUrl}) center` }}
-      <main className="song-play-container">
+      <div className="song-play-container">
         {songPlayDetail && songPlayDetail.length && (
           <audio
             className="song-play-audio"
@@ -185,7 +185,7 @@ class SongPlay extends Component {
           {songLyricDetail && <SongLyric {...lyricProps} />}
         </section>
         <Actions handleSongPlay={this.handleSongPlay} isPlay={isPlay} allTime={allTime} currentTime={currentTime} changeTime={this.changeTime} />
-      </main>
+      </div>
     );
   }
 }

@@ -19,14 +19,14 @@ module.exports = {
     node: true,
     es6: true
   },
-  extends: ["eslint:recommended", "plugin:prettier/recommended"],
+  // extends: ["eslint:recommended", "plugin:prettier/recommended"],
   plugins: ["html", "react", "prettier"],
   rules: {
     indent: [2, 2], // 控制缩进为2
     //字符串必须使用单引号
     // quotes: ["error", "single"],
     "no-console": 0, //不禁用console
-    "no-debugger": 2, //禁用debugger
+    // "no-debugger": 2, //禁用debugger
     "no-var": 0, //对var警告
     // semi: 0, //不强制使用分号
     "no-irregular-whitespace": 0, //不规则的空白不允许

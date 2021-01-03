@@ -6,7 +6,7 @@ import "./style.less";
 class Header extends Component {
   render() {
     return (
-      <header className="header-wrap fontGreyClolr">
+      <header className="header-wrap font-grey-clolr">
         <div>
           <svg className="icon" aria-hidden="true">
             <use xlinkHref={handleIconFont("maikefeng")}></use>

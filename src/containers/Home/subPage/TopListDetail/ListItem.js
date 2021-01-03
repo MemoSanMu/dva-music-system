@@ -30,7 +30,7 @@ export default ({ List, trackIds, handleSongPlay }) => {
                 </p>
               </div>
               <div className="list-song-info">
-                <h5 className="fontGreyClolr line-ellipsis">{item.name}</h5>
+                <h5 className="font-grey-clolr line-ellipsis">{item.name}</h5>
                 <p className="line-ellipsis p-t-10">{`${item.ar[0].name} - ${item.name}`}</p>
               </div>
             </div>

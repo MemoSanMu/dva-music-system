@@ -14,7 +14,7 @@ const RotationArea = ({ info: { picUrl }, isPlay, handleLike, isLike, toggleCont
           <img src={picUrl} alt="" />
         </div>
       </div>
-      <div className="actions-top fontGreyClolr">
+      <div className="actions-top font-grey-clolr">
         <svg className="icon" aria-hidden="true" onClick={handleLike}>
           <use xlinkHref={handleIconFont(isLike ? "aixin1" : "aixin")}></use>
         </svg>

@@ -18,7 +18,7 @@ export default ({ trackCount, subscribedCount }) => {
         </span>
         <span>
           <strong className="p-l-10">播发全部</strong>
-          <span className="fontGreyClolr vertical-text-top">{` (共${trackCount}首)`}</span>
+          <span className="font-grey-clolr vertical-text-top">{` (共${trackCount}首)`}</span>
         </span>
       </div>
       <div className="list-nav-bgr">

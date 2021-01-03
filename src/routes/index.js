@@ -5,6 +5,7 @@ import { lazyLoading } from "@/utils/lazyLoading";
 const Index = () => import("@/containers");
 const Login = () => import("@/containers/Login");
 const SongPlay = () => import("@/containers/SongPlay");
+const Singer = () => import("@/containers/Singer");
 
 function RouterConfig({ history, app }) {
   return (
@@ -14,6 +15,7 @@ function RouterConfig({ history, app }) {
         <Route exact path="/" render={() => <Redirect to="/home" />} />
         <Route path="/home" component={lazyLoading(Index)} />
         <Route path="/songPlay" component={lazyLoading(SongPlay)} />
+        <Route path="/Singer" component={lazyLoading(Singer)} />
         <Route path="/login" component={lazyLoading(Login)} />
         <Redirect path="*" to="/home" />
       </Switch>

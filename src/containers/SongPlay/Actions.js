@@ -27,7 +27,7 @@ class Actions extends Component {
           />
           <span>{this.formatSecond(allTime)}</span>
         </div>
-        <div className="actions-bottom fontGreyClolr p-t-20">
+        <div className="actions-bottom font-grey-clolr p-t-20">
           {/* 切换播放顺讯 */}
           {/* <i className={handleIconFont('danquxunhuan')}></i>
           <i className={handleIconFont('ziyuan')}></i> */}

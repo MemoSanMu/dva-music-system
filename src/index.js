@@ -5,7 +5,7 @@ import "@/style/normalize.css";
 import "@/utils/rem";
 import RouterConfig from "@/routes";
 import { createBrowserHistory as createHistory } from "history";
-import { login, topList, topListDetail, SongPlayDetailStore } from "@/models";
+import { login, topList, topListDetail, SongPlayDetailStore, Singer } from "@/models";
 import vhCheck from "vh-check";
 vhCheck("browser-address-bar");
 
@@ -24,6 +24,7 @@ App.model(login);
 App.model(topList);
 App.model(topListDetail);
 App.model(SongPlayDetailStore);
+App.model(Singer);
 
 // 4. Router
 App.router(RouterConfig);
